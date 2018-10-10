@@ -174,19 +174,39 @@
 % Describe problem in the dataset -> Some stores want odd numbers of Shirts
 % Detect the color-related patterns
 \begin{frame}{Initial Look at the Data}
-\begin{block}{our data}
-	58 stores with 4 colour and each has 6 sizes with only M and L in black, blue and red can be overstock
+\begin{block}{Our data}
+	58 stores with 4 colour and each has 6 sizes\\
+	Overstock by 1 Medium or Large black, blue, or red t-shirt allowed in each store
 \end{block}
-include graph of data here...
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|r|r|r|r|r|r|r|r|r|r|r|r|}
+\hline
+\multicolumn{6}{|c|}{Black} & \multicolumn{6}{|c|}{Blue} \\ \hline
+\multicolumn{1}{|l|}{XS} & \multicolumn{1}{l|}{S} & \multicolumn{1}{l|}{M} & \multicolumn{1}{l|}{L} & \multicolumn{1}{l|}{XL} & \multicolumn{1}{l|}{2XL} & \multicolumn{1}{l|}{XS} & \multicolumn{1}{l|}{S} & \multicolumn{1}{l|}{M} & \multicolumn{1}{l|}{L} & \multicolumn{1}{l|}{XL} & \multicolumn{1}{l|}{2XL} \\ \hline
+1 & 2 & 2 & 3 & 4 & 1 & 1 & 2 & 2 & 5 & 3 & 1 \\ \hline
+1 & 2 & 4 & 3 & 2 & 1 & 1 & 2 & 3 & 3 & 4 & 1 \\ \hline
+1 & 2 & 2 & 5 & 2 & 1 & 1 & 2 & 2 & 5 & 3 & 1 \\ \hline
+1 & 2 & 2 & 3 & 4 & 1 & 1 & 2 & 4 & 3 & 3 & 1 \\ \hline
+1 & 2 & 4 & 3 & 2 & 1 & 1 & 2 & 3 & 3 & 4 & 1 \\ \hline
+1 & 2 & 4 & 3 & 2 & 1 & 1 & 2 & 3 & 4 & 3 & 1 \\ \hline
+\end{tabular}
+\end{center}
+\caption{Examples from the data for black and blue t-shirt colours. Shops fall into one of three categories in black, and one of four categories in blue.}
+\label{}
+\end{table}
 \end{frame}
 
 \begin{frame}{Initial Look at the Data}
  \begin{itemize}
-	\item fundamental problem:
-	even number for all types of boxes vs some stores have odd sums → overstock is unavoidable
-	\item try find further structure:
+	\item Fundamental problem:
+	Even number for all types of boxes vs some stores have odd sums → overstock is unavoidable
+	\item Try find further structure:
 	min, average, mode, sum → subtract the mode → subtract the min $\rightarrow$ small scale first → pattern inside each colour
 \end{itemize}
+\end{frame}
+
+\begin{frame}
 \end{frame}
 
 % Yu
