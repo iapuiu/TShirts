@@ -90,6 +90,7 @@
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{subcaption}
+\usepackage{bbm} % Make good looking indicator functions
 \setbeamersize{text margin left=5em}  % <- like this
 \setbeamersize{text margin right=5em} % <- like this
 
@@ -174,14 +175,14 @@
 % Detect the color-related patterns
 \begin{frame}{Initial Look at the Data}
 \begin{block}{our data}
-	58 stores with 4 colour and each has 6 sizes with only M and L in black, blue and red can be overstock 
+	58 stores with 4 colour and each has 6 sizes with only M and L in black, blue and red can be overstock
 \end{block}
 include graph of data here...
 \end{frame}
 
 \begin{frame}{Initial Look at the Data}
  \begin{itemize}
-	\item fundamental problem: 
+	\item fundamental problem:
 	even number for all types of boxes vs some stores have odd sums → overstock is unavoidable
 	\item try find further structure:
 	min, average, mode, sum → subtract the mode → subtract the min $\rightarrow$ small scale first → pattern inside each colour
