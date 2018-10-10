@@ -167,29 +167,36 @@
             \item It is expensive to train your staff on packing T-Shirts into many
             different types of boxes. You are supplied with boxes that fit 4, 6, 8
             or 10 T-Shirts and can not ship partially filled boxes.
-            \item You offer a total of $24$ different T-Shirts (Six different sizes
-            offered in four different colors).
+            \item You offer a total of $24$ different T-Shirts.\\
+                \hfill(Six different sizes offered in four different colors)
         \end{itemize}
     \end{block}
-    Variables:
-    \begin{minipage}[h]{0.45\textwidth}
-        Orders\\
-        \begin{align*}
-            \text{order}_i \in \N_{\geq 0}^{24}
-        \end{align*}
-    \end{minipage}
-    \begin{minipage}[h]{0.45\textwidth}
-        Boxes\\
-        \begin{align*}
-            \text{box}_i \in \N_{\geq 0}^{24}, \text{ with } \sum_{j = 1}^{24}
-            \text{box}_i^{(j)} \in {4, 6, 8, 10}
-        \end{align*}
-    \end{minipage}
 \end{frame}
+
+\begin{frame}{Optimisation problem}
+    Variables in the optimisation problem
+    \begin{align*}
+        \text{Orders: }& \text{o}_i \in \N_{\geq 0}^{24}\\
+        \text{Boxes: }& \text{b}_j \in \N_{\geq 0}^{24}, \text{ with }
+        \text{b}_j^T 1 \in {4, 6, 8, 10}\\
+        \text{Delivery plan: }& \alpha_{(i,j)}\in \N_{\geq 0}~ \forall i, j
+    \end{align*}
+    Where $\alpha_{i,j}$ is the number of boxes of type $j$ that store $i$ will
+    receive.\\
+\end{frame}
+
+\begin{frame}{Optimisation problem formulation}
+    Formulation as an integer optimisation problem
+    \begin{align*}
+
+    \end{align*}
+\end{frame}
+
 
 \subsection{Brute force approach}
 % Use this the clarify why the problem is difficult.
-\include{brute_force.tex}
+\include{brute_force}
+
 
 \section{Pattern detection}
 \include{pattern_detection.tex}
@@ -224,38 +231,5 @@ include graph of data here...
 
 \subsection{Final results}
 \include{results.tex}
-
-\subsection{Performance optimization}
-\begin{frame}{Performance optimization}
-    \begin{algorithm}[H]
-        \begin{algorithmic}[1] % The number tells where the line numbering should start
-            \State $F_{\row} \gets \mtx \mtx^T$ \Comment{$\mathcal{O}(N^3)$}
-            \State $F_{\col} \gets \mtx^T \mtx$\Comment{$\mathcal{O}(N^3)$}
-            \State $\Fmin_{\row} \gets \left(  \min(F_{\row}(i,i), F_{\row}(j,j)
-                \right)_{i = 1,\ldots,N,~j = 1,\ldots,N}$
-                    \Comment{$\mathcal{O}(N^2)$}
-            \State $\Fmin_{\col} \gets \left(  \min(F_{\col}(i,i), F_{\col}(j,j)
-                \right)_{i = 1,\ldots,M,~j = 1,\ldots,M}$
-                    \Comment{$\mathcal{O}(N^2)$}
-            \State $\Olap_{\row} \gets F_{\row}/\Fmin_{\row}$
-                    \Comment{$\mathcal{O}(N^2)$}
-            \State $\Olap_{\col} \gets F_{\col}/\Fmin_{\col}$
-                    \Comment{$\mathcal{O}(N^2)$}
-            \State $\DF_{\row} \gets \left( F_{\row}(i,i) < F_{\row}(j,j)
-                \right)_{i,j = 1,\ldots,N}$
-                    \Comment{$\mathcal{O}(N^2)$}
-            \State $\DF_{\col} \gets \left( F_{\col}(i,i) < F_{\col}(j,j)
-                \right)_{i,j = 1,\ldots,M}$
-                    \Comment{$\mathcal{O}(N^2)$}
-            \State $\NODF_{\row} = \sum(\DF_{\row} \Olap_{\row})$
-                    \Comment{$\mathcal{O}(N^2)$}
-            \State $\NODF_{\col} = \sum(\DF_{\col} \Olap_{\col})$
-                    \Comment{$\mathcal{O}(N^2)$}
-            \State $\NODF = (\NODF_{\row} + \NODF_{\col}) / (0.5 \cdot(N^2 -N + M^2 -M))$
-            \State return $\NODF$
-        \end{algorithmic}
-        \caption{$\NODF(\mtx)$}
-    \end{algorithm}
-\end{frame}
 
 \end{document}
