@@ -199,6 +199,21 @@
 % Introduce the data-set
 % Describe problem in the dataset -> Some stores want odd numbers of Shirts
 % Detect the color-related patterns
+\begin{frame}{Initial Look at the Data}
+\begin{block}{our data}
+	58 stores with 4 colour and each has 6 sizes with only M and L in black, blue and red can be overstock 
+\end{block}
+include graph of data here...
+\end{frame}
+
+\begin{frame}{Initial Look at the Data}
+ \begin{itemize}
+	\item fundamental problem: 
+	even number for all types of boxes vs some stores have odd sums → overstock is unavoidable
+	\item try find further structure:
+	min, average, mode, sum → subtract the mode → subtract the min $\rightarrow$ small scale first → pattern inside each colour
+\end{itemize}
+\end{frame}
 
 \subsection{Optimisation of box-types based on colors}
 \include{color-optimisation.tex}
