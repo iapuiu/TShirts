@@ -152,10 +152,12 @@
 \titlepage % Print the title page as the first slide
 \end{frame}
 
+% Christophe
 \section{Description of the Problem}
 % Describe the problem
 \include{problem_description}
 
+% Joel
 \subsection{Brute force approach}
 % Use this the clarify why the problem is difficult.
 \include{brute_force}
@@ -164,53 +166,38 @@
 \section{Pattern detection}
 \include{pattern_detection.tex}
 
+% Yu
 \subsection{Initial look at the data}
 \include{initial_data_analysis.tex}
 % Introduce the data-set
 % Describe problem in the dataset -> Some stores want odd numbers of Shirts
 % Detect the color-related patterns
+\begin{frame}{Initial Look at the Data}
+\begin{block}{our data}
+	58 stores with 4 colour and each has 6 sizes with only M and L in black, blue and red can be overstock 
+\end{block}
+include graph of data here...
+\end{frame}
 
+\begin{frame}{Initial Look at the Data}
+ \begin{itemize}
+	\item fundamental problem: 
+	even number for all types of boxes vs some stores have odd sums → overstock is unavoidable
+	\item try find further structure:
+	min, average, mode, sum → subtract the mode → subtract the min $\rightarrow$ small scale first → pattern inside each colour
+\end{itemize}
+\end{frame}
+
+% Yu
 \subsection{Optimisation of box-types based on colors}
 \include{color-optimisation.tex}
 
-
+% Yu
 \subsection{Cross-color optimisation}
 \include{cross-color-optimisation.tex}
 
+% Alex
 \subsection{Final results}
 \include{results.tex}
-
-%\subsection{Performance optimization}
-%\begin{frame}{Performance optimization}
-%    \begin{algorithm}[H]
-%        \begin{algorithmic}[1] % The number tells where the line numbering should start
-%            \State $F_{\row} \gets \mtx \mtx^T$ \Comment{$\mathcal{O}(N^3)$}
-%            \State $F_{\col} \gets \mtx^T \mtx$\Comment{$\mathcal{O}(N^3)$}
-%            \State $\Fmin_{\row} \gets \left(  \min(F_{\row}(i,i), F_{\row}(j,j)
-%                \right)_{i = 1,\ldots,N,~j = 1,\ldots,N}$
-%                    \Comment{$\mathcal{O}(N^2)$}
-%            \State $\Fmin_{\col} \gets \left(  \min(F_{\col}(i,i), F_{\col}(j,j)
-%                \right)_{i = 1,\ldots,M,~j = 1,\ldots,M}$
-%                    \Comment{$\mathcal{O}(N^2)$}
-%            \State $\Olap_{\row} \gets F_{\row}/\Fmin_{\row}$
-%                    \Comment{$\mathcal{O}(N^2)$}
-%            \State $\Olap_{\col} \gets F_{\col}/\Fmin_{\col}$
-%                    \Comment{$\mathcal{O}(N^2)$}
-%            \State $\DF_{\row} \gets \left( F_{\row}(i,i) < F_{\row}(j,j)
-%                \right)_{i,j = 1,\ldots,N}$
-%                    \Comment{$\mathcal{O}(N^2)$}
-%            \State $\DF_{\col} \gets \left( F_{\col}(i,i) < F_{\col}(j,j)
-%                \right)_{i,j = 1,\ldots,M}$
-%                    \Comment{$\mathcal{O}(N^2)$}
-%            \State $\NODF_{\row} = \sum(\DF_{\row} \Olap_{\row})$
-%                    \Comment{$\mathcal{O}(N^2)$}
-%            \State $\NODF_{\col} = \sum(\DF_{\col} \Olap_{\col})$
-%                    \Comment{$\mathcal{O}(N^2)$}
-%            \State $\NODF = (\NODF_{\row} + \NODF_{\col}) / (0.5 \cdot(N^2 -N + M^2 -M))$
-%            \State return $\NODF$
-%        \end{algorithmic}
-%        \caption{$\NODF(\mtx)$}
-%    \end{algorithm}
-%\end{frame}
 
 \end{document}
