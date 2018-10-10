@@ -3,19 +3,26 @@
     \begin{block}{T-Shirt distribution problem}
         You are a T-Shirt distributor and want to optimise your packaging
         process when sending boxes of T-Shirts to stores.
-        \begin{itemize}
-            \item Each store requires a
-            certain number of T-Shirts of given sizes.
-            \item It is expensive to train your staff on packing T-Shirts into many
-            different types of boxes. You are supplied with boxes that fit 4, 6, 8
-            or 10 T-Shirts and can not ship partially filled boxes.
-            \item You offer a total of $24$ different T-Shirts.\\
-                \hfill(Six different sizes offered in four different colors)
-            \item Stores will only accept receiving more T-Shirts than ordered in the case of
-            medium and large Shirts in colors black, blue or red.\\
-            \item Over-stocking is bad, but under-stocking is a lot (say $10$ times) worse.
-        \end{itemize}
     \end{block}
+    \only<1>{
+        \begin{center}
+            \includegraphics[width=0.75\textwidth]{./figures/problem-overview-crop.pdf}
+        \end{center}
+    }
+    \only<2>{
+    \begin{itemize}
+        \item It is expensive to train your staff on packing T-Shirts into many
+        different types of boxes.
+        \item Each store requires a
+        certain number of T-Shirts of given sizes.
+        \item Stores will only accept receiving more T-Shirts than ordered in the case of
+        medium and large Shirts in colors black, blue or red.
+        \item Over-stocking is bad, but under-stocking is a lot (say $10$ times) worse.
+        \item You are supplied with boxes that fit 4, 6, 8
+        or 10 T-Shirts and can not ship partially filled boxes.
+        \item You offer a total of $24$ different T-Shirts.\\
+            \hfill(Six different sizes offered in four different colors)
+    \end{itemize}}
 \end{frame}
 
 \begin{frame}{Optimisation problem}
