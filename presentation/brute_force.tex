@@ -1,10 +1,15 @@
-% Put bruteforce section here
 \begin{frame}
-Brute force approach:
-\begin{lstlisting}[language=Python]
-for each number N of box types:
-	for each combination of N distinct box types:
-		calculate penalty given N and the over- and under-stock
-\end{lstlisting}
-However, there are $\sim 10^{11}$ boxes possible, so $\sim 2^{10^{11}} - 1$ penalties to calculate $\Rightarrow$ brute force unfeasible
+\begin{algorithm}[H]
+	\begin{algorithmic}[1] % The number tells where the line numbering should start
+		\State $N_{max}$ = maximum possible number of box types
+		\ForAll{$N \in \lbrace{1, 2, \dots, N_{max}\rbrace}$}
+			\ForAll{possible combinations of N box types}
+				\State compute penalty given $N$ and total over- and under-stock
+			\EndFor
+		\EndFor
+	\end{algorithmic}
+	\caption{Brute-force algorithm}
+\end{algorithm}
+However, $N_{max} \sim 10^{11}$, so $\sim 2^{10^{11}} - 1$ combinations of box types to consider\\
+$\Rightarrow$ brute force approach unfeasible
 \end{frame}

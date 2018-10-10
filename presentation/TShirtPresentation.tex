@@ -189,7 +189,8 @@
 
 \subsection{Brute force approach}
 % Use this the clarify why the problem is difficult.
-\include{brute_force.tex}
+\include{brute_force}
+
 
 \section{Pattern detection}
 \include{pattern_detection.tex}
@@ -210,37 +211,37 @@
 \subsection{Final results}
 \include{results.tex}
 
-\subsection{Performance optimization}
-\begin{frame}{Performance optimization}
-    \begin{algorithm}[H]
-        \begin{algorithmic}[1] % The number tells where the line numbering should start
-            \State $F_{\row} \gets \mtx \mtx^T$ \Comment{$\mathcal{O}(N^3)$}
-            \State $F_{\col} \gets \mtx^T \mtx$\Comment{$\mathcal{O}(N^3)$}
-            \State $\Fmin_{\row} \gets \left(  \min(F_{\row}(i,i), F_{\row}(j,j)
-                \right)_{i = 1,\ldots,N,~j = 1,\ldots,N}$
-                    \Comment{$\mathcal{O}(N^2)$}
-            \State $\Fmin_{\col} \gets \left(  \min(F_{\col}(i,i), F_{\col}(j,j)
-                \right)_{i = 1,\ldots,M,~j = 1,\ldots,M}$
-                    \Comment{$\mathcal{O}(N^2)$}
-            \State $\Olap_{\row} \gets F_{\row}/\Fmin_{\row}$
-                    \Comment{$\mathcal{O}(N^2)$}
-            \State $\Olap_{\col} \gets F_{\col}/\Fmin_{\col}$
-                    \Comment{$\mathcal{O}(N^2)$}
-            \State $\DF_{\row} \gets \left( F_{\row}(i,i) < F_{\row}(j,j)
-                \right)_{i,j = 1,\ldots,N}$
-                    \Comment{$\mathcal{O}(N^2)$}
-            \State $\DF_{\col} \gets \left( F_{\col}(i,i) < F_{\col}(j,j)
-                \right)_{i,j = 1,\ldots,M}$
-                    \Comment{$\mathcal{O}(N^2)$}
-            \State $\NODF_{\row} = \sum(\DF_{\row} \Olap_{\row})$
-                    \Comment{$\mathcal{O}(N^2)$}
-            \State $\NODF_{\col} = \sum(\DF_{\col} \Olap_{\col})$
-                    \Comment{$\mathcal{O}(N^2)$}
-            \State $\NODF = (\NODF_{\row} + \NODF_{\col}) / (0.5 \cdot(N^2 -N + M^2 -M))$
-            \State return $\NODF$
-        \end{algorithmic}
-        \caption{$\NODF(\mtx)$}
-    \end{algorithm}
-\end{frame}
+%\subsection{Performance optimization}
+%\begin{frame}{Performance optimization}
+%    \begin{algorithm}[H]
+%        \begin{algorithmic}[1] % The number tells where the line numbering should start
+%            \State $F_{\row} \gets \mtx \mtx^T$ \Comment{$\mathcal{O}(N^3)$}
+%            \State $F_{\col} \gets \mtx^T \mtx$\Comment{$\mathcal{O}(N^3)$}
+%            \State $\Fmin_{\row} \gets \left(  \min(F_{\row}(i,i), F_{\row}(j,j)
+%                \right)_{i = 1,\ldots,N,~j = 1,\ldots,N}$
+%                    \Comment{$\mathcal{O}(N^2)$}
+%            \State $\Fmin_{\col} \gets \left(  \min(F_{\col}(i,i), F_{\col}(j,j)
+%                \right)_{i = 1,\ldots,M,~j = 1,\ldots,M}$
+%                    \Comment{$\mathcal{O}(N^2)$}
+%            \State $\Olap_{\row} \gets F_{\row}/\Fmin_{\row}$
+%                    \Comment{$\mathcal{O}(N^2)$}
+%            \State $\Olap_{\col} \gets F_{\col}/\Fmin_{\col}$
+%                    \Comment{$\mathcal{O}(N^2)$}
+%            \State $\DF_{\row} \gets \left( F_{\row}(i,i) < F_{\row}(j,j)
+%                \right)_{i,j = 1,\ldots,N}$
+%                    \Comment{$\mathcal{O}(N^2)$}
+%            \State $\DF_{\col} \gets \left( F_{\col}(i,i) < F_{\col}(j,j)
+%                \right)_{i,j = 1,\ldots,M}$
+%                    \Comment{$\mathcal{O}(N^2)$}
+%            \State $\NODF_{\row} = \sum(\DF_{\row} \Olap_{\row})$
+%                    \Comment{$\mathcal{O}(N^2)$}
+%            \State $\NODF_{\col} = \sum(\DF_{\col} \Olap_{\col})$
+%                    \Comment{$\mathcal{O}(N^2)$}
+%            \State $\NODF = (\NODF_{\row} + \NODF_{\col}) / (0.5 \cdot(N^2 -N + M^2 -M))$
+%            \State return $\NODF$
+%        \end{algorithmic}
+%        \caption{$\NODF(\mtx)$}
+%    \end{algorithm}
+%\end{frame}
 
 \end{document}
