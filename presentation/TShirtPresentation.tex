@@ -135,14 +135,14 @@
 \title[T-Shirt Problem]{Optimising T-Shirt distributiuon} % The short title appears at the bottom of every slide, the full title is only on the title page
 
 \author{A. Puiu, Y. Tian, J. Dyer, C. Hoeppke} % Your name
-%\institute[University of Oxford] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
-%{
-University of Oxford\\ % Your institution for the title page
+\institute[University of Oxford] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+%University of Oxford\\
 %\medskip
 \textit{Department for Mathematics} % Your email address
-%}
-%\date{01/10/2018} % Date, can be changed to a custom date
 \date{\today} % Date, can be changed to a custom date
+}
+%\date{01/10/2018} % Date, can be changed to a custom date
 \begin{document}
 
 
@@ -154,6 +154,37 @@ University of Oxford\\ % Your institution for the title page
 \section{Description of the Problem}
 % Describe the problem
 \include{problem_description.tex}
+
+% Problem description section
+\begin{frame}{Problem description}
+    \begin{block}{T-Shirt distribution problem}
+        You are a T-Shirt distributor and want to optimise your packaging
+        process when sending boxes of T-Shirts to stores.
+        \begin{itemize}
+            \item Each store requires a
+            certain number of T-Shirts of given sizes.
+            \item It is expensive to train your staff on packing T-Shirts into many
+            different types of boxes. You are supplied with boxes that fit 4, 6, 8
+            or 10 T-Shirts and can not ship partially filled boxes.
+            \item You offer a total of $24$ different T-Shirts (Six different sizes
+            offered in four different colors).
+        \end{itemize}
+    \end{block}
+    Variables:
+    \begin{minipage}[h]{0.45\textwidth}
+        Orders\\
+        \begin{align*}
+            \text{order}_i \in \N_{\geq 0}^{24}
+        \end{align*}
+    \end{minipage}
+    \begin{minipage}[h]{0.45\textwidth}
+        Boxes\\
+        \begin{align*}
+            \text{box}_i \in \N_{\geq 0}^{24}, \text{ with } \sum_{j = 1}^{24}
+            \text{box}_i^{(j)} \in {4, 6, 8, 10}
+        \end{align*}
+    \end{minipage}
+\end{frame}
 
 \subsection{Brute force approach}
 % Use this the clarify why the problem is difficult.
