@@ -155,44 +155,7 @@
 % Christophe
 \section{Description of the Problem}
 % Describe the problem
-\include{problem_description.tex}
-
-% Problem description section
-\begin{frame}{Problem description}
-    \begin{block}{T-Shirt distribution problem}
-        You are a T-Shirt distributor and want to optimise your packaging
-        process when sending boxes of T-Shirts to stores.
-        \begin{itemize}
-            \item Each store requires a
-            certain number of T-Shirts of given sizes.
-            \item It is expensive to train your staff on packing T-Shirts into many
-            different types of boxes. You are supplied with boxes that fit 4, 6, 8
-            or 10 T-Shirts and can not ship partially filled boxes.
-            \item You offer a total of $24$ different T-Shirts.\\
-                \hfill(Six different sizes offered in four different colors)
-        \end{itemize}
-    \end{block}
-\end{frame}
-
-\begin{frame}{Optimisation problem}
-    Variables in the optimisation problem
-    \begin{align*}
-        \text{Orders: }& \text{o}_i \in \N_{\geq 0}^{24}\\
-        \text{Boxes: }& \text{b}_j \in \N_{\geq 0}^{24}, \text{ with }
-        \text{b}_j^T 1 \in {4, 6, 8, 10}\\
-        \text{Delivery plan: }& \alpha_{(i,j)}\in \N_{\geq 0}~ \forall i, j
-    \end{align*}
-    Where $\alpha_{i,j}$ is the number of boxes of type $j$ that store $i$ will
-    receive.\\
-\end{frame}
-
-\begin{frame}{Optimisation problem formulation}
-    Formulation as an integer optimisation problem
-    \begin{align*}
-
-    \end{align*}
-\end{frame}
-
+\include{problem_description}
 
 % Joel
 \subsection{Brute force approach}
