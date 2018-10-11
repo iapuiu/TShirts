@@ -1,1 +1,169 @@
 % Section that contains the pattern detection
+\begin{frame}{Initial Analysis}
+	The Data:
+	\begin{itemize}
+		\item 58 stodes with 4 colours and 6 sizes each.
+		\item only M and L for black, blue and red can be overstacked.
+	\end{itemize}
+	Fundamental Problem:
+	\begin{itemize}
+		\item Boxes require even number of shirt, but some stores order odd numbers $\Rightarrow$ overstocking is unavoidable.
+	\end{itemize}
+	Try to find further structure:
+	\begin{itemize}
+		\item min,average,mode,sum $Rightarrow$ subtract the mode $Rightarrow$ subtract the min $\Rightarrow$ pattern inside each colour
+	\end{itemize}
+\end{frame}
+\begin{frame}{Initial Analysis ct'd}
+
+\begin{equation}
+     \begin{bmatrix}
+     1&2&2&3&2&1\\
+  0&0&2&0&0&0\\
+  0&0&0&2&0&0\\
+  0&0&0&0&2&0
+     \end{bmatrix}
+\end{equation}
+\begin{equation}
+\color{Blue}
+    \begin{bmatrix}
+        1&2&2&3&3&1\\
+        0&0&0&2&0&0\\
+        0&0&1&0&1&0\\
+        0&0&1&1&0&0\\
+    \end{bmatrix}
+\end{equation}
+\begin{equation}
+\color{BrickRed}
+    \begin{bmatrix}
+         1&2&3&3&3&1\\
+         0&0&0&1&2&0\\
+         0&0&0&3&0&0\\
+         0&1&1&0&0&0\\
+    \end{bmatrix}
+\end{equation}
+\begin{equation}
+\color{OliveGreen}
+    \begin{bmatrix}
+         0&0&0&0&0&0\\
+         1&1&1&2&1&1\\
+         1&1&2&2&1&1\\
+         1&1&2&2&2&1\\
+        
+    \end{bmatrix}
+\end{equation}
+\end{frame}
+\begin{frame}{Colour Based Optimisation}
+	\begin{itemize}
+		\item We form boxes for each colour individually
+	\end{itemize}
+	\begin{equation*}
+
+     \begin{bmatrix}
+     1&2&2&3&2&1\\
+  0&0&2&0&0&0\\
+  0&0&0&2&0&0\\
+  0&0&0&0&2&0
+     \end{bmatrix} \Rightarrow
+     \begin{bmatrix}
+     1&2&2&2&2&1\\
+	     0&0&2&1+\Color{Red}1&0&0\\
+	     0&0&0&3+\Color{Red}1&0&0\\
+	     0&0&0&1+\Color{Red}1&2&0
+     \end{bmatrix}
+
+
+	\end{equation*}
+	\begin{equation*}
+\color{Blue}
+    \begin{bmatrix}
+        1&2&2&3&3&1\\
+        0&0&0&2&0&0\\
+        0&0&1&0&1&0\\
+        0&0&1&1&0&0\\
+    \end{bmatrix}\Rightarrow
+\color{Blue}
+    \begin{bmatrix}
+        1&2&2&2&2&1\\
+        0&0&0&3&1&0\\
+        0&0&1&1&2&0\\
+        0&0&1&2&1&0\\
+    \end{bmatrix}		
+	\end{equation*}
+
+\end{frame}
+\begin{frame}
+	\begin{equation}
+	\color{BrickRed}
+    \begin{bmatrix}
+         1&2&3&3&3&1\\
+         0&0&0&1&2&0\\
+         0&0&0&3&0&0\\
+         0&1&1&0&0&0\\
+    \end{bmatrix}\Rightarrow \begin{bmatrix}
+	    1&2&2&2&2&1\\
+         0&0&1&2&3&0\\
+         0&0&1&4&1&0\\
+	    0&1&2&1&1+\Color{Grey}1&0\\
+    \end{bmatrix}
+\end{equation}
+\begin{equation}
+\color{OliveGreen}
+    \begin{bmatrix}
+         0&0&0&0&0&0\\
+         1&1&1&2&1&1\\
+         1&1&2&2&1&1\\
+         1&1&2&2&2&1\\
+        
+    \end{bmatrix}\Rightarrow \begin{bmatrix}
+         1&1&1&2&1&1\\
+         1&1&2&2&1&1\\
+         1&1&2&2&2&1\\
+        
+    \end{bmatrix}
+\end{equation}
+$\Rightarrow$ This gives $4+5+4+3=16$ types, but we can do better for blue!
+	\begin{frame}
+	\begin{equation}
+
+    \begin{bmatrix}
+        1&2&2&2&2&1\\
+        0&0&0&3&1&0\\
+        0&0&1&1&2&0\\
+        0&0&1&2&1&0\\
+    \end{bmatrix} \Rightarrow \begin{bmatrix}
+	    1& 0& 0& 1& 3& 1\\
+	    0& 1& 2& 1& 0& 0\\
+	    0& 1& 1& 2& 0& 0\\
+	    0& 1& 1& 1& 1& 0 \\
+    \end{bmatrix}
+	\end{equation}
+$\Rightarrow$ Now $16-1=15$ types.
+
+
+
+	\end{frame}
+	\begin{frame}{Cross Colour Optimisation}
+	\begin{itemize}
+	\item full rank now, to further reduce the types of boxes, we need to consider the combination of them
+	\item to avoid the mess of combination for each store, we consider combine the box 1 in black and box 1 in blue, as they are what everybody needs
+	\end{itemize}\begin{equation}
+	\begin{bmatrix}
+		0& 0& 0& 0& 2& 1\\
+		1& 2& 4& 3& 0& 0 \\
+		 1& 2& 2& 5& 0& 0\\
+		 1& 2& 2& 3& 2& 0
+
+	\end{bmatrix}\end{equation}
+			$\Rightarrow$ then combine the box 1 in black with box 1 in blue with extra 1 in black L (acceptable overload)
+now $15 – 1 = 14$ types!
+	\end{frame}
+
+
+
+
+
+\end{frame}
+	
+
+	
