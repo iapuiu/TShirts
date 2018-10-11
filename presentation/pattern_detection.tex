@@ -49,10 +49,11 @@
          1&1&1&2&1&1\\
          1&1&2&2&1&1\\
          1&1&2&2&2&1\\
-        
+
     \end{bmatrix}
 \end{equation}
 \end{frame}
+
 \begin{frame}{Colour Based Optimisation}
 	\begin{itemize}
 		\item We form boxes for each colour individually
@@ -88,7 +89,7 @@
         0&0&0&3&1&0\\
         0&0&1&1&2&0\\
         0&0&1&2&1&0\\
-    \end{bmatrix}		
+    \end{bmatrix}
 	\end{equation*}
 
 \end{frame}
@@ -114,12 +115,12 @@
          1&1&1&2&1&1\\
          1&1&2&2&1&1\\
          1&1&2&2&2&1\\
-        
+
     \end{bmatrix}\Rightarrow \begin{bmatrix}
          1&1&1&2&1&1\\
          1&1&2&2&1&1\\
          1&1&2&2&2&1\\
-        
+
     \end{bmatrix}
 \end{equation}
 $\Rightarrow$ This gives $4+5+4+3=16$ types, but we can do better for blue!
@@ -138,23 +139,22 @@ $\Rightarrow$ This gives $4+5+4+3=16$ types, but we can do better for blue!
 	    0& 1& 1& 1& 1& 0 \\
     \end{bmatrix}
 	\end{equation}
-$\Rightarrow$ Now $16-1=15$ types.
+    $\Rightarrow$ Now $16-1=15$ types.
+\end{frame}
 
-
-
-	\end{frame}
 	\begin{frame}{Cross Colour Optimisation}
 	\begin{itemize}
 	\item full rank now, to further reduce the types of boxes, we need to consider the combination of them
 	\item to avoid the mess of combination for each store, we consider combine the box 1 in black and box 1 in blue, as they are what everybody needs
-	\end{itemize}\begin{equation}
-	\begin{bmatrix}
-		0& 0& 0& 0& 2& 1\\
-		1& 2& 4& 3& 0& 0 \\
-		 1& 2& 2& 5& 0& 0\\
-		 1& 2& 2& 3& 2& 0
-
-	\end{bmatrix}\end{equation}
+	\end{itemize}
+    \begin{equation}
+        \begin{bmatrix}
+            0& 0& 0& 0& 2& 1\\
+            1& 2& 4& 3& 0& 0 \\
+             1& 2& 2& 5& 0& 0\\
+             1& 2& 2& 3& 2& 0
+        \end{bmatrix}
+    \end{equation}
 			$\Rightarrow$ then combine the box 1 in black with box 1 in blue with extra 1 in black L (acceptable overload)
 now $15 – 1 = 14$ types!
 	\end{frame}
@@ -164,6 +164,3 @@ now $15 – 1 = 14$ types!
 
 
 \end{frame}
-	
-
-	
